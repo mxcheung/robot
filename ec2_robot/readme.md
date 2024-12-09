@@ -64,6 +64,15 @@ Configure storage
 ssh -i "MyKeyPair.pem" ec2-user@ec2-54-172-100-112.compute-1.amazonaws.com
 ```
 
+```
+project/
+│
+├── Dockerfile
+├── app.py              # Main execution script
+├── test.robot          # Robot Framework test suite
+├── test.py             # Supporting Python file for custom Robot Framework libraries
+
+```
 
 ## reference
 https://www.geeksforgeeks.org/how-to-install-docker-on-aws-ec2/
