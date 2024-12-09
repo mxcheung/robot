@@ -8,6 +8,7 @@ def run_robot_script():
     print(f"Running Robot Framework script at {time.strftime('%Y-%m-%d %H:%M:%S')}")
     result = run([
         "robot",
+        "--pythonpath", "/tests",  # Ensure the test.py module is accessible
         "--outputdir", output_dir,  # Specify the output directory
         "hello.robot"
     ])
