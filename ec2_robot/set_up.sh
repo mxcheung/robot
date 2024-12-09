@@ -17,6 +17,6 @@ sudo yum install -y postgresql15
 pip install gdown
 
 
-docker build -t python-docker-app .
+sudo docker build -t python-docker-app .
 
-docker run --rm python-docker-app
+sudo docker run --rm python-docker-app
