@@ -9,6 +9,13 @@ cd /home/ec2-user/robot/ec2_robot/
 ```
 
 ```
+sudo docker build -t python-docker-app .
+sudo docker run --rm python-docker-app
+
+robot hello.robot
+```
+
+```
 sudo yum update -y 
 
 sudo amazon-linux-extras install docker 
