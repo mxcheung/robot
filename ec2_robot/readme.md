@@ -58,3 +58,5 @@ ssh -i "MyKeyPair.pem" ec2-user@ec2-54-172-100-112.compute-1.amazonaws.com
 ## reference
 https://www.geeksforgeeks.org/how-to-install-docker-on-aws-ec2/
 https://www.geeksforgeeks.org/how-to-run-a-python-script-using-docker/
+https://github.com/robotframework/BeginnersGuide
+
