@@ -4,7 +4,7 @@ from subprocess import run
 
 def run_robot_script():
     print(f"Running Robot Framework script at {time.strftime('%Y-%m-%d %H:%M:%S')}")
-    result = run(["robot", "test.robot"])  # Replace 'test.robot' with your script file
+    result = run(["robot", "hello.robot"])  # Replace 'test.robot' with your script file
     if result.returncode == 0:
         print("Script executed successfully.")
     else:
