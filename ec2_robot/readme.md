@@ -1,7 +1,12 @@
 ec2_robot
 
 
-
+```
+sudo yum -y install git
+git clone https://github.com/mxcheung/aws-rds.git
+cd /home/ec2-user/robot/ec2-robot/
+. ./set_up.sh
+```
 
 ```
 sudo yum update -y 
