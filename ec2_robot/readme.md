@@ -34,3 +34,7 @@ Network settings
 
 Configure storage
   - 30gb
+
+```
+ssh -i "MyKeyPair.pem" ec2-user@ec2-54-172-100-112.compute-1.amazonaws.com
+```
