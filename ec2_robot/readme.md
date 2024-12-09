@@ -4,7 +4,7 @@ ec2_robot
 ```
 sudo yum -y install git
 git clone https://github.com/mxcheung/robot.git
-cd /home/ec2-user/robot/ec2-robot/
+cd /home/ec2-user/robot/ec2_robot/
 . ./set_up.sh
 ```
 
