@@ -8,6 +8,7 @@ https://www.geeksforgeeks.org/how-to-install-docker-on-aws-ec2/
 sudo yum update -y
 sudo yum install docker -y
 sudo systemctl start docker
+sudo systemctl status docker
 ```
 
 
