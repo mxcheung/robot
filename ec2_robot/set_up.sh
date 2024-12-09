@@ -15,3 +15,8 @@ sudo yum -y install python3-pip python3-devel nginx git
 sudo yum install -y postgresql15
 
 pip install gdown
+
+
+docker build -t python-docker-app .
+
+docker run --rm python-docker-app
