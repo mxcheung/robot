@@ -19,3 +19,11 @@ your_search_query
 | rex field=mes "\"status\":\s*\"(?<status>[^\"]+)\""
 | table time level func status
 ```
+
+
+```
+your_search_query
+| rex field=mes "\"status\":\s*\"(?<status>[^\"]+)\""
+| transaction startswith="status=FAILED" maxspan=1m maxevents=50
+| table time level func status mes
+```
