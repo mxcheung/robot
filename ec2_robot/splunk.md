@@ -9,3 +9,7 @@ index="your_index" source="your_source" | search status="Green" OR status="Red"
 ```
 Job - $result.status$
 ```
+
+```
+{"time": "2024-12-13 03:40:17,501", "level": "INFO", "func": "run_robot_script", "mes": "CII Robot Automation2 -  {"status": "FAILED", "message": "Script failed with return code 1"}"}
+```
