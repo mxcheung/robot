@@ -67,3 +67,9 @@ async def shutdown_event():
     crython.stop()
 ```
 
+```
+DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+```
