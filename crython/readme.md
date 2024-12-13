@@ -1,3 +1,4 @@
+```
 import crython
 import os
 
@@ -20,3 +21,4 @@ if __name__ == "__main__":
     except (KeyboardInterrupt, SystemExit):
         print("Stopping Crython scheduler...")
         crython.stop()
+```
