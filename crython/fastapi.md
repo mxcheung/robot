@@ -10,9 +10,7 @@ import crython
 import asyncio
 from fastapi import FastAPI
 from pydantic import BaseModel
-
-# Initialize FastAPI app
-app = FastAPI()
+from contextlib import asynccontextmanager
 
 # Read the cron expression from an environment variable, with a default value
 CRON_EXPRESSION = os.getenv("CRON_EXPRESSION", "*/5 * * * *")  # Default: Every 5 minutes
@@ -23,8 +21,7 @@ batch_job_flag = {"run_batch": False}
 # Batch job function
 async def run_batch_job():
     print("Running batch job...")
-    # Simulate batch job execution with async sleep
-    await asyncio.sleep(2)
+    await asyncio.sleep(2)  # Simulate batch job execution
     print("Batch job completed.")
 
 # Crython job to check the batch job flag
@@ -36,6 +33,20 @@ def check_and_run_batch_job():
         batch_job_flag["run_batch"] = False  # Reset the flag
     else:
         print("No batch job triggered.")
+
+# Define lifespan for startup and shutdown events
+@asynccontextmanager
+async def app_lifespan(app: FastAPI):
+    print(f"Starting Crython scheduler with CRON_EXPRESSION: {CRON_EXPRESSION}")
+    crython.start()
+    try:
+        yield  # Application is running
+    finally:
+        print("Stopping Crython scheduler...")
+        crython.stop()
+
+# Initialize FastAPI app with lifespan
+app = FastAPI(lifespan=app_lifespan)
 
 # Health check endpoint
 @app.get("/health")
@@ -53,18 +64,6 @@ async def trigger_batch(request: TriggerBatchRequest):
         batch_job_flag["run_batch"] = True
         return {"status": "ok", "message": "Batch job triggered"}
     return {"status": "ok", "message": "Batch job not triggered"}
-
-# Start Crython scheduler on application startup
-@app.on_event("startup")
-async def startup_event():
-    print(f"Starting Crython scheduler with CRON_EXPRESSION: {CRON_EXPRESSION}")
-    crython.start()
-
-# Stop Crython scheduler on application shutdown
-@app.on_event("shutdown")
-async def shutdown_event():
-    print("Stopping Crython scheduler...")
-    crython.stop()
 ```
 
 ```
