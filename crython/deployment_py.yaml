@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+      - name: my-container
+        image: my-image:latest
+        livenessProbe:
+          exec:
+            command:
+              - /usr/local/bin/python
+              - /usr/local/bin/health_check.py
+          initialDelaySeconds: 10
+          periodSeconds: 30
