@@ -27,3 +27,12 @@ your_search_query
 | transaction startswith="status=FAILED" maxspan=1m maxevents=50
 | table time level func status mes
 ```
+
+
+```
+your_search_query
+| rex field=mes "\"status\":\s*\"(?<status>[^\"]+)\""
+| streamstats count as line_number reset_after="status=FAILED"
+| where line_number <= 50
+| table time level func status mes
+```
