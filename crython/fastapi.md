@@ -1,3 +1,10 @@
+```
+fastapi
+uvicorn
+crython
+```
+
+```
 import os
 import crython
 import asyncio
@@ -58,3 +65,5 @@ async def startup_event():
 async def shutdown_event():
     print("Stopping Crython scheduler...")
     crython.stop()
+```
+
