@@ -10,14 +10,13 @@ class TimeHelper:
         "los_angeles": "America/Los_Angeles",
         "sydney": "Australia/Sydney",
         "utc": "UTC",
-        # Add more aliases as needed
     }
 
-    def get_local_time(self, tz_key: str = "utc", fmt: str = "%Y-%m-%d %H:%M:%S"):
+    def get_local_date(self, tz_key: str = "utc"):
         tz_name = self.TIMEZONE_MAP.get(tz_key.lower())
         if not tz_name:
             raise ValueError(f"Unsupported timezone key: {tz_key}")
 
         tz = pytz.timezone(tz_name)
         now = datetime.now(tz)
-        return now.strftime(fmt)
+        return now.strftime("%Y-%m-%d")
